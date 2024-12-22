@@ -167,5 +167,16 @@
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbyws3V_7ZGotfqH6jya-ObLKUYFDCNEs4dJl8UZZUMBkYCYN5pHS7uz7Bkz8qoHStj0qw/exec";
+      const form = document.forms["Contact-Form"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => console.log("Success!", response))
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
   </body>
 </html>
